@@ -7,14 +7,14 @@ import 'package:flutter_rrs_app/screen/nearby_restaurant.dart';
 import 'package:flutter_rrs_app/screen/orderfood.dart';
 import 'package:flutter_rrs_app/screen/promotion.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class HomeScreenOut extends StatefulWidget {
+  const HomeScreenOut({Key? key}) : super(key: key);
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _HomeScreenOutState createState() => _HomeScreenOutState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenOutState extends State<HomeScreenOut> {
   @override
   Widget build(BuildContext context) {
     double wid = MediaQuery.of(context).size.width;

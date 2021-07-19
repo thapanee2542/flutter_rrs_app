@@ -1,5 +1,10 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_rrs_app/page/home_page_logout.dart';
+import 'package:flutter_rrs_app/screen/showOwner.dart';
 import 'package:flutter_rrs_app/utility/my_style.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -9,6 +14,23 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+  String? name, user;
+  @override
+  //initstate จะทำงานก่อน build
+  void initState() {
+    // ignore: todo
+    // TODO: implement initState
+    super.initState();
+    findUser();
+  }
+
+  Future<Null> findUser() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    setState(() {
+      name = preferences.getString('name');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     double wid = MediaQuery.of(context).size.width;
@@ -16,7 +38,15 @@ class _ProfileState extends State<Profile> {
       appBar: AppBar(
         backgroundColor: kprimary,
         toolbarHeight: wid / 5,
-        title: Center(child: Text('บัญชีผู้ใช้งาน')),
+        title: Center(child: Text("บัญชีผู้ใช้งาน")),
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => MyHomePageOut()));
+              },
+              icon: Icon(Icons.exit_to_app))
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -29,19 +59,22 @@ class _ProfileState extends State<Profile> {
                   ShapeDecoration(color: ksecondary, shape: CircleBorder()),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                'Sitanan Phubunkhong',
-                style: TextStyle(fontSize: 20),
-              ),
-            ),
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  name == null ? 'Account' : '$name ',
+                  style: TextStyle(fontSize: 15),
+                )),
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: Center(
-                child: Container(
-                  width: 450,
-                  height: 350,
-                  color: ksecondary,
+                child: Column(
+                  children: [
+                    Container(
+                      width: 450,
+                      height: 350,
+                      color: ksecondary,
+                    ),
+                  ],
                 ),
               ),
             )

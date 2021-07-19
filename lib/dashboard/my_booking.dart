@@ -18,7 +18,9 @@ class _MyBookingState extends State<MyBooking> {
         appBar: AppBar(
           backgroundColor: kprimary,
           toolbarHeight: wid / 5,
-          title: Center(child: Text('การจองของฉัน')),
+          title: Center(
+            child: Text('การจองของฉัน'),
+          ),
         ),
         body: Padding(
           padding: const EdgeInsets.all(8.0),

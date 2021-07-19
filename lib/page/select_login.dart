@@ -55,7 +55,7 @@ class _SelectLoginState extends State<SelectLogin> {
           ),
           onPressed: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => SignUp()));
+                context, MaterialPageRoute(builder: (context) => Signup()));
           },
           child: Text(
             'Sign Up ',

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rrs_app/screen/restaurant.dart';
 import 'package:flutter_rrs_app/utility/my_style.dart';
 
 class OrderFood extends StatefulWidget {
@@ -14,7 +15,51 @@ class _OrderFoodState extends State<OrderFood> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kprimary,
-        title: Text('สั่งอาหาร'),
+        title: Text('ประเภท'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Image.asset('assets/images/thaifood.jpg'),
+              TextButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Restaurant()));
+                  },
+                  child: Text("Thai Food")),
+              Image.asset('assets/images/thaifood.jpg'),
+              TextButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Restaurant()));
+                  },
+                  child: Text("Chinese Food")),
+              Image.asset('assets/images/thaifood.jpg'),
+              TextButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Restaurant()));
+                  },
+                  child: Text("Indain Food")),
+              Image.asset('assets/images/thaifood.jpg'),
+              TextButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Restaurant()));
+                  },
+                  child: Text("Jananese Food")),
+              Image.asset('assets/images/thaifood.jpg'),
+              TextButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Restaurant()));
+                  },
+                  child: Text("Isaan Food")),
+            ],
+          ),
+        ),
       ),
     );
   }
